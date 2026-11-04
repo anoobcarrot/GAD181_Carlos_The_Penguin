@@ -18,7 +18,7 @@ public class EndSceneController : MonoBehaviour
 
     private void Start()
     {
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "adult.mp4");
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "adult1.mp4");
         // Start playing the video
         videoPlayer.Play();
 

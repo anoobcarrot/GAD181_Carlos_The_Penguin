@@ -14,8 +14,8 @@ public class StartTutorial : MonoBehaviour
 
     private void Start()
     {
-        walkPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "walk.mp4");
-        jumpPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "jump.mp4");
+        walkPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "walk1.mp4");
+        jumpPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "jump1.mp4");
 
         // Start with a fully transparent canvas
         tutorialCanvasGroup.alpha = 0f;
