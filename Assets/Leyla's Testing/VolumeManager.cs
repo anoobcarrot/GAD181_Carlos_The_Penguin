@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +9,8 @@ public class VolumeManager : MonoBehaviour
     private void Start()
     {
         optionsMenu.SetActive(false);
-        musicVolumeSlider.value = AudioManager.Instance.GetMusicVolume();
+
+        UpdateVolumeSlider();
     }
 
     private void Update()
@@ -25,11 +24,28 @@ public class VolumeManager : MonoBehaviour
     public void ToggleOptionsMenu()
     {
         optionsMenu.SetActive(!optionsMenu.activeSelf);
+
+        if (optionsMenu.activeSelf)
+        {
+            UpdateVolumeSlider();
+        }
+    }
+
+    private void UpdateVolumeSlider()
+    {
+        if (AudioManager.Instance != null && musicVolumeSlider != null)
+        {
+            musicVolumeSlider.SetValueWithoutNotify(
+                AudioManager.Instance.GetMusicVolume()
+            );
+        }
     }
 
     public void OnMusicVolumeChanged(float volume)
     {
-        Debug.Log("Slider Value: " + volume);
-        AudioManager.Instance.SetMusicVolume(volume);
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetMusicVolume(volume);
+        }
     }
 }
